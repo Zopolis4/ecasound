@@ -118,11 +118,11 @@ clean-manpages:
 install-data-local:
 	mkdir -p $(DESTDIR)$(mandir)/man1
 	mkdir -p $(DESTDIR)$(mandir)/man5
-	for f in $(man1_pages_to_install) ; do if test -f $$f ; then cp -v $$f $(DESTDIR)$(mandir)/man1/; fi ; done 
-	for f in $(man5_pages_to_install) ; do if test -f $$f ; then cp -v $$f $(DESTDIR)$(mandir)/man5/; fi ; done
+	for f in $(man1_pages_to_install) ; do if test -f $(srcdir)/$$f ; then cp -v $(srcdir)/$$f $(DESTDIR)$(mandir)/man1/; fi ; done
+	for f in $(man5_pages_to_install) ; do if test -f $(srcdir)/$$f ; then cp -v $(srcdir)/$$f $(DESTDIR)$(mandir)/man5/; fi ; done
 
 # ---------------------------------------------------------------------
 # Uninstall targets
 uninstall-local:
-	for f in $(man1_pages_to_install) ; do if test -f $$f ; then rm -vf $(DESTDIR)$(mandir)/man1/$$f ; fi ; done 
-	for f in $(man5_pages_to_install) ; do if test -f $$f ; then rm -vf $(DESTDIR)$(mandir)/man5/$$f ; fi ; done 
+	for f in $(man1_pages_to_install) ; do if test -f $(srcdir)/$$f ; then rm -vf $(DESTDIR)$(mandir)/man1/$$f ; fi ; done
+	for f in $(man5_pages_to_install) ; do if test -f $(srcdir)/$$f ; then rm -vf $(DESTDIR)$(mandir)/man5/$$f ; fi ; done
